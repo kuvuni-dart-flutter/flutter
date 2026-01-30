@@ -1,0 +1,157 @@
+================ SIMULADORES Y EMULADORES ===========================
+
+Directorio:
+~/Library/Android/sdk/emulator o ~/Android/Sdk/emulator
+
+Listar emulador:
+
+./emulator -list-avds
+
+Abrir emulador Android:
+./emulator -avd Pixel.....
+
+Abrir simulador iPhone:
+
+open -a Simulator
+
+xcrun simctl list devices
+
+xcrun simctl boot A1B2C3D4-...
+open -a Simulator
+
+xcrun simctl shutdown all
+xcrun simctl erase all
+
+echo $SHELL //Nos dice el shell que estamos utilizando zsh o bash
+
+nano ~/.zshrc o nano ~/.bash_profile
+
+
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export PATH="$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
+
+export PATH="$PATH:$HOME/development/flutter/bin" //o el directorio que tengamos instalado el sdk de Android
+
+
+source ~/.zshrc o source ~/.bash_profile
+
+==================== COCOAPODS ===========================================
+
+//Instalar Cocoapods (es un repositorio como npm para macOS e iPhone)
+
+ruby  -v //Necesitamos >= 3.0
+
+//Pasos.
+
+1. Comprobar si tenemes Homebrew e instalar
+
+brew -v
+
+// Si no lo tenemos.
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+2. Instalar el gestor de versiones de Ruby
+
+brew install rbenv ruby-build
+
+Si lo solicita, actualizar Homebrew.
+
+3. Activar rbenv en el shell
+
+echo 'eval "$(rbenv init -)"' >> ~/.zshrc
+source ~/.zshrc
+
+4. Comprobar que está activo.
+
+rbenv -v
+
+5. Instalar la versión de ruby
+
+rbenv install -l //Listado de las disponibles
+
+rbenv install 3.3.0
+
+rbenv global 3.3.0 //Hacer que sea la vesión global del sistema
+
+rbenv rehash //Recargar el entorno
+
+ruby -v //Verificar.
+
+//Instalar Cocoapods
+
+sudo gem install cocoapods
+
+
+============== COMANDOS ÚTILES FLUTTER ==========================
+
+flutter doctor
+
+flutter create mi_app  //Plantilla App completa (stateful con contador)
+flutter create mi_vacia_app --empty //Plantilla con Hola Mundo (stateless)
+
+//Ir al directorio (nombre de la aplicación) con cd mi_vacia_app
+flutter run
+flutter run -d <deviceId>
+flutter run -d macos
+flutter run -d chrome
+
+
+//Dispositos disponibles.
+
+flutter devices
+
+open -a Simulator //Abrir iPhone 
+
+flutter emulators //Android e iPhone
+flutter emulators --launch id_del_emulador
+
+//En VSC
+Flutter: Select device
+
+O en la barra inferior. (No devices o el que aparezca). Luego run como en Dart.
+
+//Extensiones interesantes para VSC
+
+1. Flutter Widget Snippets
+Atajos para generar widgets comunes:
+
+fstl → StatelessWidget
+fstf → StatefulWidget
+fscaf → Scaffold
+fcol → Column
+frow → Row
+
+2. Awesome Flutter Snippets
+Snippets más avanzados:
+
+Providers
+Futures
+Streams
+JSON parsing
+Widgets complejos
+
+3. Error Lens
+Hace que los errores y warnings aparezcan directamente en el código, no solo en la barra inferior.
+Te permite detectar fallos al instante.
+
+4. Flutter Color
+Detecta colores en el código y muestra una vista previa.
+Perfecto para trabajar con temas, paletas y diseño visual.
+
+5. Flutter Tree
+Muestra la jerarquía de widgets en un panel lateral.
+Muy útil para proyectos con UI compleja.
+
+//Enlace principal para widgets
+
+https://docs.flutter.dev/ui/widgets/material
+
+
+
+
+
+
+
+
+
