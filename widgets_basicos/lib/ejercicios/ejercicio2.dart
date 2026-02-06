@@ -12,10 +12,10 @@ class Ejercicio2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Datos del dashboard
-    const int usuariosActivos = 1234;
+    const int usuariosActivos = 3234;
     const double ingresos = 45600.50;
     const int tasaConversion = 78;
-    const int cambioUsuarios = 12;
+    const int cambioUsuarios = -12;
     const int cambioIngresos = -5;
     const int cambioConversion = 23;
 
@@ -51,6 +51,7 @@ class Ejercicio2 extends StatelessWidget {
               // ============================================================
               // SECCIÓN 1: KPI CARDS (Row con 3 Cards)
               // ============================================================
+              (){return Text("hola");}.call(),
               const Text(
                 'Métricas principales',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -198,6 +199,25 @@ class Ejercicio2 extends StatelessWidget {
                       ),
                     ),
                     // Filas de datos
+                    ListView.separated(
+                      shrinkWrap: true, // Ajusta el tamaño al contenido
+                      physics: NeverScrollableScrollPhysics(),
+                     padding: EdgeInsets.only(bottom: 10),
+                      itemBuilder: (context, index){
+                      final transaccion = transacciones[index];
+                        return Column(
+                          children: [
+                            _buildTableRow(
+                              id: transaccion['id'],
+                              monto: transaccion['monto'],
+                              estado: transaccion['estado'],
+                            )
+                          ]
+                        );
+                    }, 
+                    separatorBuilder: (context, index) => Divider(height: 8, indent: 8, endIndent: 8,), 
+                    itemCount: transacciones.length)
+                    /*
                     ...List.generate(
                       transacciones.length,
                       (index) {
@@ -209,12 +229,13 @@ class Ejercicio2 extends StatelessWidget {
                               monto: transaccion['monto'],
                               estado: transaccion['estado'],
                             ),
-                            if (index < transacciones.length - 1)
+                            if (!(transaccion == transacciones.last))
+                       //     if (index < transacciones.length - 1)
                               const Divider(height: 1, indent: 12, endIndent: 12),
                           ],
                         );
                       },
-                    ),
+                    ),*/
                   ],
                 ),
               ),
@@ -245,7 +266,7 @@ class Ejercicio2 extends StatelessWidget {
     String cambioSymbol = esPositivo ? '↑' : '↓';
 
     return Card(
-      elevation: 2,
+      elevation: 4,
       child: Padding(
         padding: const EdgeInsets.all(12),
         child: Column(
