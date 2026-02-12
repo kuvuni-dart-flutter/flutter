@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import '../dia_comunes/my_lesson_header.dart';
-import 'shared_preferences_ejemplo.dart';
-import 'hive_ejemplo.dart';
-import 'sqlite_ejemplo.dart';
-import 'archivos_ejemplo.dart';
+import 'package:widgets_basicos/widgets_basicos/dia_11_febrero/SolucionEjercicio/archivos_solucion.dart';
+import 'package:widgets_basicos/widgets_basicos/dia_11_febrero/SolucionEjercicio/hive_solucion.dart';
+import 'package:widgets_basicos/widgets_basicos/dia_11_febrero/SolucionEjercicio/shared_preferences_solucion.dart';
+import 'package:widgets_basicos/widgets_basicos/dia_11_febrero/SolucionEjercicio/sqlite_solucion.dart';
+import 'package:widgets_basicos/widgets_basicos/dia_9_febrero/my_lesson_header.dart';
+
 
 /// DÍA 11 - PERSISTENCIA LOCAL EN FLUTTER
 ///
@@ -95,7 +96,7 @@ class Dia11Persistencia extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const PantallaPreferencias(),
+                      builder: (context) =>  PantallaPreferencias(),
                     ),
                   );
                 },
@@ -114,7 +115,7 @@ class Dia11Persistencia extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const PantallaHive(),
+                      builder: (context) =>  PantallaHive(),
                     ),
                   );
                 },
@@ -133,7 +134,7 @@ class Dia11Persistencia extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const PantallaSQLite(),
+                      builder: (context) => PantallaSQLite(),
                     ),
                   );
                 },
@@ -152,7 +153,7 @@ class Dia11Persistencia extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const PantallaTareas(),
+                      builder: (context) => PantallaTareas(),
                     ),
                   );
                 },
